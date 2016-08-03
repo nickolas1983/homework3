@@ -3,7 +3,7 @@ $str = "Деякі водії :) намагаються проскочити б�
 function smile($str)
 {
     $reg = "/[:)]+/";
-    $replace = ">";
+    $replace = "<img src=\"Smiley.png\" width=\"32\">";
     return preg_replace($reg, $replace, $str);
 }
 
