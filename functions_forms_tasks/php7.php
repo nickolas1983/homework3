@@ -11,8 +11,8 @@ function clearMessage($message)
 }
 
 $messages = array();
-if (file_exists('data.txt')) {
-    $storedMessages = unserialize(file_get_contents('data.txt'));
+if (file_exists('php7.txt')) {
+    $storedMessages = unserialize(file_get_contents('php7.txt'));
     if (is_array($messages)) {
         $messages = $storedMessages;
     }
@@ -26,8 +26,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'add') {
     if (!isset($_POST['username']) || !$_POST['username']) {
         $_POST['username'] = 'Anonimus';
     }
-
-    if (!isset($_POST['username']) || !$_POST['username']) {
+    if (!isset($_POST['message']) || !$_POST['message']) {
         $userMessage = 'Message is requered';
     } else {
         $messages[] = array(
@@ -38,7 +37,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'add') {
     }
 
 }
-file_put_contents('data.txt', serialize($messages));
+file_put_contents('php7.txt', serialize($messages));
 
 ?>
 
@@ -58,6 +57,14 @@ file_put_contents('data.txt', serialize($messages));
 
 <?php }?>
 
+<?php foreach ($messages as $message) {    ?>
+    <div>
+        <h5><?php echo $message['username'] ?></h5>
+        <p><?php echo clearMessage($message['message']) ?></p>
+    </div>
+
+<?php } ?>
+
 <form method="post" action="">
     <label for="username">Username:</label><br>
     <input name="username" type="text" id="username"><br>
@@ -68,15 +75,6 @@ file_put_contents('data.txt', serialize($messages));
     <input type="submit" value="Add message"><br>
     <input type="hidden" name="action" value="add"><br>
 </form>
-
-
-<?php foreach ($messages as $message) {?>
-    <div>
-        <h5><?php echo $message['username'] ?></h5>
-        <p><?php echo clearMessage($message['message']) ?></p>
-    </div>
-
-<?php }?>
 
 </body>
 </html>

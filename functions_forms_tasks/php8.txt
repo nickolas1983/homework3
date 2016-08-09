@@ -1,0 +1,2 @@
+a:4:{i:0;a:2:{s:8:"username";s:9:"NickolasT";s:7:"message";s:7:"<p></p>";}i:1;a:2:{s:8:"username";s:9:"NickolasT";s:7:"message";s:7:"<p></p>";}i:2;a:2:{s:8:"username";s:9:"NickolasT";s:7:"message";s:7:"<p></p>";}i:3;a:2:{s:8:"username";s:8:"Anonimus";s:7:"message";s:53:"<p>preg_replace</p><b>ddddddd</b>
+<h2>ggggggggg</h2>";}}
