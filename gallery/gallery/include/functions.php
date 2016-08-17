@@ -32,6 +32,8 @@ function removeFile($filename) {
 }
 
 function cmpSize($a, $b) {
+    $a = iconv('UTF-8', 'Windows-1251', $a);
+    $b = iconv('UTF-8', 'Windows-1251', $b);
     if (filesize($a) == filesize($b)) {
         return 0;
     }
