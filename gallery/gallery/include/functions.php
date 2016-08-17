@@ -3,7 +3,7 @@
 function checkAndUploadFile($file, &$message, &$errorMessage, $category = 'All') {
 
     global $allowedTypes;
-    
+
     if ( in_array($file['type'], $allowedTypes) ) {
 
         $fileName = $file['tmp_name'];
@@ -12,9 +12,10 @@ function checkAndUploadFile($file, &$message, &$errorMessage, $category = 'All')
             $category = GALLERY_FOLDER ;
         }
         elseif ($category != '') {
+            $category =  iconv('UTF-8', 'Windows-1251', $category);
             $category .= '/';
         }
-        $destination = $category . $file['name'];
+        $destination = $category . iconv('UTF-8', 'Windows-1251', $file['name']) ;
 
         //$destination = GALLERY_FOLDER . md5(time());
 
@@ -27,7 +28,7 @@ function checkAndUploadFile($file, &$message, &$errorMessage, $category = 'All')
 }
 
 function removeFile($filename) {
-    return unlink($filename);
+    return unlink(iconv('UTF-8', 'Windows-1251', $filename));
 }
 
 function cmpSize($a, $b) {
@@ -43,10 +44,21 @@ function choseCategory($category) {
         $array1 = glob(GALLERY_FOLDER . '*/*.*');
         $array2 = glob(GALLERY_FOLDER . '*.*');
         $images = array_merge($array1, $array2);
-        return $images;
+        $resultImages = array();
+
+        foreach ($images as $image) {
+            $resultImages[] = iconv( 'Windows-1251', 'UTF-8', $image);
+        }
+        return $resultImages;
     }
     else {
-        return glob($category . '/*.*');
+        $images = glob(iconv( 'UTF-8', 'Windows-1251', $category) . '/*.*');
+        $resultImages = array();
+
+        foreach ($images as $image) {
+            $resultImages[] = iconv( 'Windows-1251', 'UTF-8', $image);
+        }
+        return $resultImages;
     }
 }
 
@@ -58,6 +70,9 @@ function createDir($name) {
 }
 
 function cmpTimeFileChange($a, $b) {
+    $a = iconv('UTF-8', 'Windows-1251', $a);
+    $b = iconv('UTF-8', 'Windows-1251', $b);
+
     if (filemtime($a) == filemtime($b)) {
         return 0;
     }
@@ -85,15 +100,19 @@ function countFoto($category = 'All') {
 }
 
 function dellAll($dir){
+    $dir = iconv('UTF-8', 'Windows-1251', $dir);
     $list = glob($dir."/*");
     for ($i = 0; $i < count($list); $i++){
-        if (is_dir($list[$i])) dellAll($list[$i]);
-        else unlink($list[$i]);
+        $listTmp = $list[$i];
+        if (is_dir($listTmp)) dellAll($listTmp);
+        else unlink($listTmp);
     }
     rmdir($dir);
 }
 
 function renameCategory($oldName, $newName) {
+    $newName = iconv('UTF-8', 'Windows-1251', $newName);
+    $oldName = iconv('UTF-8', 'Windows-1251', $oldName);
     $newName = GALLERY_FOLDER . $newName;
     rename($oldName, $newName);
 }

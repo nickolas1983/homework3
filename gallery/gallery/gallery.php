@@ -16,12 +16,6 @@ if(isset($_POST['action']) && $_POST['action'] == 'add') {
     header('Location: addFile.php');
 }
 /* remove file */
-//if(isset($_POST['action']) && $_POST['action'] == 'remove') {
-//    if(removeFile($_POST['filename'])) {
-//        header('Location: gallery.php?performedAction=remove');
-//    }
-//}
-
 if(isset($_POST['delete'])) {
     if(removeFile($_POST['delete'])){
         header('Location: gallery.php?performedAction=remove');
@@ -68,7 +62,9 @@ if(isset($_POST['action']) && $_POST['action'] == 'sort') {
 </form>
 
 <div id="gallery">
-<?php foreach ($images as $image) { ?>
+<?php foreach ($images as $image) {
+    //$image = iconv('Windows-1251', 'UTF-8', $image);
+    ?>
     <div class="grid">
         <a href="<?php echo $image ?>" >
             <div class="image"  style="background: center url(<?php echo $image ?>)  no-repeat; background-size: cover;">

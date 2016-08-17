@@ -7,15 +7,15 @@ include 'head.php';
 //unset($_SESSION['gallery']);
 //unset($_SESSION['category']);
 
-
 /* chose category */
 if(isset($_POST['chose'])) {
-   if ($images = choseCategory($_POST['chose'])) {
-       $_SESSION['gallery'] = $images;
-       $_SESSION['category'] = $_POST['chose'];
-       //var_dump($gallery);
-       header('Location: gallery.php');
-   }
+
+    if ($images = choseCategory($_POST['chose'])) {
+        $_SESSION['gallery'] = $images;
+        $_SESSION['category'] = $_POST['chose'];
+        //var_dump($gallery);
+        header('Location: gallery.php');
+    }
     if (count(choseCategory($_POST['chose'])) == 0){
         $_SESSION['category'] = $_POST['chose'];
         header('Location: addFile.php');
@@ -87,11 +87,13 @@ $categores = glob(GALLERY_FOLDER. '*', GLOB_ONLYDIR);
         <br>
     </div>
 
-    <?php foreach ($categores as $category){?>
+    <?php foreach ($categores as $category){
+        $category = iconv('Windows-1251', 'UTF-8', $category);
+        ?>
     <div class="grid" ">
         <button name="chose" value="<?php echo $category;?>">
 
-            <div class="categoryImage"  style="background: center url(<?php echo lastChangeFileIcon($category);?>)  no-repeat; background-size: cover">
+            <div class="categoryImage"  style="background: center url('<?php echo lastChangeFileIcon($category);?>')  no-repeat; background-size: cover">
             </div>
 
             <p>
