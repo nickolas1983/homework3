@@ -1,0 +1,50 @@
+
+h3, h2 {
+    display: inline-block;
+}
+
+.addFoto {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.message {
+    color: green;
+}
+
+.message {
+    color: red;
+}
+
+.grid {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+
+.image {
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+}
+
+.categoryImage {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.button {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.count {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.countImage {
+    height: 18px;
+    vertical-align: bottom;
+}
