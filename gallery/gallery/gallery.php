@@ -62,9 +62,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'sort') {
 </form>
 
 <div id="gallery">
-<?php foreach ($images as $image) {
-    //$image = iconv('Windows-1251', 'UTF-8', $image);
-    ?>
+<?php foreach ($images as $image) {?>
     <div class="grid">
         <a href="<?php echo $image ?>" >
             <div class="image"  style="background: center url(<?php echo $image ?>)  no-repeat; background-size: cover;">
