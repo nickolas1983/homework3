@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+h1, h2, h3 {
+    margin: 10px 0;
+}
+
+ul, li {
+    list-style: none;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+}
+
+#header {
+    padding: 30px 80px;
+}
+
+#header p {
+    font-weight: bold;
+    font-size: 40pt;
+}
+
+#footer {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px 0;
+    text-align: center;
+}
+
+#wrapper {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+#menu {
+    padding: 0 80px;
+}
+
+#menu a {
+    display: block;
+    padding: 5px 10px;
+}
+
+#content {
+    display: table-row;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.content{
+    padding: 0 80px;
+}
+
+
+.form {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin: auto 0;
+    vertical-align: bottom;
+}
+
+.login {
+    width: 250px;
+    display: block;
+    margin-top: 5px;
+}
+
+.form .login{
+    margin: auto;
+}
+
+.button {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.admin{
+    margin-right: 40px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.categoryImage {
+    margin-top: 40px;
+    width: 200px;
+    height: 295px;
+    overflow: hidden;
+}

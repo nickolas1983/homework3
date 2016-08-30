@@ -1,0 +1,18 @@
+body {
+    background-color: lightblue;
+}
+
+html, body, a {
+    color: darkslategrey;
+}
+
+#header, #footer {
+    background-color: cadetblue;
+}
+
+#footer p, #header p {
+    color: lightblue;
+}
+
+
+

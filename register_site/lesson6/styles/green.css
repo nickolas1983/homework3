@@ -1,0 +1,16 @@
+body {
+    background-color: lightgreen;
+}
+
+html, body, a {
+    color: darkslategrey;
+}
+
+#header, #footer {
+    background-color: darkgreen;
+}
+
+#footer p, #header p {
+    color: lightgreen;
+}
+
