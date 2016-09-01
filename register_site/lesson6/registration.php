@@ -35,11 +35,11 @@ if (isset($_POST['action']) && $_POST['action'] = 'registration'){
             <form action="registration.php" method="post">
 
                 <input type="hidden" name="action" value="registration">
-                <label class="login" for="login">Login</label>
-                <input class="login" type="text" name="login" id="login">
+                <label class="paragraphStyle1" for="login">Login</label>
+                <input class="paragraphStyle1" type="text" name="login" id="login">
 
-                <label class="login" for="password">Password</label>
-                <input class="login" type="password" name="password" id="password">
+                <label class="paragraphStyle1" for="password">Password</label>
+                <input class="paragraphStyle1" type="password" name="password" id="password">
 
                 <input class="button" type="submit" value="Sing up">
             </form>

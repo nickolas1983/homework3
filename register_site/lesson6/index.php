@@ -2,8 +2,9 @@
 session_start();
 
 /*adding functionality*/
-require_once 'settings.php';
 require_once 'functions.php';
+require_once 'settings.php';
+
 
 /**/
 
@@ -29,13 +30,12 @@ include 'templates/menu.php';
 /* adding content */
 
 $page = getPageName($allowedPages);
-
 ?>
 
     <div id="content">
         <div class="content">
             <?php
-            include "pages/{$page}.php";
+            include "{$page}.php";
             ?>
         </div>
     </div>

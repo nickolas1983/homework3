@@ -4,6 +4,7 @@ define('SITE_NAME', 'Our site');
 define('USERS_BD', 'bd/users.txt');
 define('SALT', '123');
 define('BD_FOLDER', 'bd/');
+define('PAGES_FOLDER', 'pages/');
 
 $allowedTypes = array (
     'image/jpeg',
@@ -15,4 +16,8 @@ $allowedPages = array(
     'contact',
     'main', 
     'admin',
+    'profile',
 );
+
+
+

@@ -72,11 +72,11 @@ if (isset($_POST['action']) && $_POST['action'] = 'login'){
                 <form action="login.php" method="post">
 
                     <input type="hidden" name="action" value="login">
-                    <label class="login" for="login" >Login</label>
-                    <input class="login" type="text" name="login" id="login">
+                    <label class="paragraphStyle1" for="login" >Login</label>
+                    <input class="paragraphStyle1" type="text" name="login" id="login">
 
-                    <label class="login" for="password">Password</label>
-                    <input class="login" type="password" name="password" id="password">
+                    <label class="paragraphStyle1" for="password">Password</label>
+                    <input class="paragraphStyle1" type="password" name="password" id="password">
 
                     <input class="button" type="submit" value="Login">
                 </form>
