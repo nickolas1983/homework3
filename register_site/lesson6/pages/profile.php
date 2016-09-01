@@ -26,18 +26,19 @@ if(isset($_POST['action']) && $_POST['action'] == 'chosePage') {
 ?>
 
 <div>
+    <h1>Profile</h1>
     <form method="post" action="index.php?page=profile"">
 
     <input type="hidden" name="action" value="users">
 
-    <label class="paragraphStyle1" for="user">Chose profile</label>
-    <select class="paragraphStyle2" name="user" id="user">
+    <h3 class="paragraphStyle4">Chose profile</h3>
+    <select class="paragraphStyle2" name="user">
         <?php
         foreach ($logins as $login){?>
             <option <?php if (isset($user) && $login == $user) echo 'selected';?> value="<?php echo $login;?>"><?php  echo $login;?></option>
         <?php }?>
     </select>
-    <input class="button" type="submit" value="choose">
+    <input class="button" type="submit" value="Chose">
     </form>
 
         <div class="blockStyle">
@@ -70,17 +71,17 @@ if(isset($_POST['action']) && $_POST['action'] == 'chosePage') {
 
     <input type="hidden" name="user" value="<?php echo $user;?>">
 
-    <label class="paragraphStyle1" for="page">Chose page</label>
-    <select class="paragraphStyle2" name="page" id="page">
+    <h3 class="paragraphStyle4">Chose page</h3>
+    <select class="paragraphStyle2" name="page">
         <?php
         foreach ($pages as $page){?>
             <option <?php if (isset($chosePage) && $page == $chosePage) echo 'selected';?> value="<?php echo $page;?>"><?php  echo $page;?></option>
         <?php }?>
     </select>
 
-    <input class="button" type="submit" value="choose">
+    <input class="button" type="submit" value="Chose">
     </form>
-    
+
     <h2 class="paragraphStyle3" ><?php if(isset($chosePage)) {
             echo $chosePage;
         } ?></h2>

@@ -91,6 +91,12 @@ textarea{
     margin-top: 5px;
 }
 
+.paragraphStyle4 {
+    display: inline-block;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
 .form .paragraphStyle1 {
     margin: auto;
 }
