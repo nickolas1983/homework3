@@ -83,7 +83,7 @@
                 <?php } ?>
                 <li style="position: relative">
                     <div style="color: white; padding: 12px 10px 10px 50px;">
-                        Поиск <input style="color: black; padding-left: 5px" type="text" id="search">
+                        Поиск <input style="color: black; padding-left: 5px" type="text" id="search" placeholder="по тегу">
                     </div>
                     <div style="color: black; position: absolute; background-color: white; top: 38px; left: 94px;">
                         <ul class="search_result" id="search_result" style="list-style: none; padding: 0 0 0 5px; width: 188px; border: solid 1px black">

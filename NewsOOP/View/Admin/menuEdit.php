@@ -12,6 +12,7 @@
             <td><p>Родительский пункт меню</p></td>
             <td>
                 <p><select class="form-control" name="parent_id">
+                        <option class="form-control" value="">""</option>
                     <?php foreach ($data['menu'] as $item){ ?>
                         <option class="form-control" value="<?php echo $item['id'];?>"><?php echo $item['text'];?></option>
                     <?php } ?>

@@ -75,13 +75,21 @@ class CommentsModel extends BaseModel {
     
     public function getTopCommentators($top){
 
+        if ( isset($_SESSION['login']) && $_SESSION['login'] == ADMIN_LOGIN){
+            $condition = " 1 ";
+        }
+        else {
+            $condition = " 1 and visible = 1";
+        }
+
         $result = $this->db->query(
-            'SELECT  comments.user_id id_user, login,  count(*) as comments'.
-            ' from ' . $this->table .
-            ' left join users on users.id = comments.user_id'.
-            ' left join rating on rating.comment_id = comments.id'.
-            ' group by comments.user_id, login order by comments DESC'.
-            ' limit '.$top
+            "SELECT  comments.user_id id_user, login, visible,  count(*) as comments
+             from  `comments`
+             left join users on users.id = comments.user_id
+             left join rating on rating.comment_id = comments.id
+             where $condition
+             group by comments.user_id, login order by comments DESC
+             limit $top"
         );
 
         return $result;
@@ -92,11 +100,18 @@ class CommentsModel extends BaseModel {
 
         if ($countFrom != '') $countFrom .= " , ";
 
+        if ( isset($_SESSION['login']) && $_SESSION['login'] == ADMIN_LOGIN){
+            $condition = "";
+        }
+        else {
+            $condition = " and visible = 1";
+        }
+
         $query  = 'select comments.id as comment_id, `comment`,  visible, user_id, login, add_date, title';
         $query  .= ' from comments';
         $query  .= ' left join users on comments.user_id = users.id';
         $query  .= ' left join articles on articles.id = comments.article_id';
-        $query  .= " where user_id = $user_id";
+        $query  .= " where user_id = $user_id".$condition ;
         $query  .= ' order by add_date DESC';
         $query  .= " limit $countFrom $count";
 
@@ -149,9 +164,16 @@ class CommentsModel extends BaseModel {
 
     public function countPagesByUsersComments($user_id){
 
+        if ( isset($_SESSION['login']) && $_SESSION['login'] == ADMIN_LOGIN){
+            $condition = "";
+        }
+        else {
+            $condition = " and visible = 1";
+        }
+
         $query = "select count(*) as quantity
                   from comments
-                  where user_id = $user_id";
+                  where user_id = $user_id".$condition;
 
         $quantity = $this->db->query($query);
 

@@ -28,7 +28,7 @@
                     <button type="button" class="btn btn-default page" style="display: none;"><?php echo $i;?></button></a>
             <?php } }?>
 
-        <a href="article/commentatorsList/<?php echo $data['comments_list'][0]['user_id'];?>/<?php echo $lastPage;?>"><button type="button" class="btn btn-default"><?php echo $lastPage;?></button></a>
+        <a href="article/commentatorsList/<?php echo $data['comments_list'][0]['user_id'];?>/<?php if ($lastPage>1) echo $lastPage;?>"><button type="button" class="btn btn-default"><?php echo $lastPage;?></button></a>
 
     </div>
 </div>
