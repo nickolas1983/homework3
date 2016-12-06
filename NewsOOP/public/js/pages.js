@@ -6,13 +6,12 @@ function pagination() {
         });
     }
 
-/*function total_views(data) {
+function total_views(data) {
     $("#viewed").text('Viewed ' + data  + ' times');
-}*/
+}
 
 
-/*function visit_counter() {
-
+function visit_counter() {
     var visitors = Math.floor(Math.random() * 6);
     $.get("Article/counter", {
         id: $("#id").text(),
@@ -21,8 +20,8 @@ function pagination() {
         total_views);
     
     $("#visitors").text(visitors);
-    //setTimeout("visit_counter()", 3000);
-}*/
+    setTimeout("visit_counter()", 5000);
+}
 
 function search_results(data) {
     var array = data.split(';');
@@ -198,6 +197,7 @@ function checkComment() {
 }
 
 $(document).ready(function() {
+    visit_counter();
     $("#show").bind("click", pagination);
     $("#search").bind("keyup", search);
     $("#save_comment").on("click", saveComment);
@@ -208,7 +208,7 @@ $(document).ready(function() {
     $("#comments_return").on("click","li button.edit", comment_edit);
     
 
-    //visit_counter();
+
 
     $(function(){
         setTimeout(function () {
