@@ -178,8 +178,6 @@ class ArticleController extends BaseController
         $commentsModel = new CommentsModel();
 
         $commentsModel->updateComment($_POST['id'], $_POST['text']);
-
-
     }
     
     public function search(){
