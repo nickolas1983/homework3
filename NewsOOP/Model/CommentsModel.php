@@ -20,9 +20,10 @@ class CommentsModel extends BaseModel {
             $article =' where article_id = '.$article;
         }
         $result = $this->db->query(
-            'SELECT comments.id id_comment, `comment`, comments.user_id id_user, visible, article_id, add_date,change_date, parent_id, login, email,  sum(`like`) - sum(dislike) as rating'.
+            'SELECT comments.id id_comment, `comment`, categories_id,  comments.user_id id_user, visible, article_id, add_date,change_date, parent_id, login, email,  sum(`like`) - sum(dislike) as rating'.
             ' from ' . $this->table .
             ' left join users on users.id = comments.user_id'.
+            ' left join articles a on  a.id = `comments`.article_id'.
             ' left join rating on rating.comment_id = comments.id'.$article.
             ' group by comments.id , `comment`, comments.user_id , article_id, add_date,change_date, parent_id, login, email'
         );
@@ -79,7 +80,7 @@ class CommentsModel extends BaseModel {
             $condition = " 1 ";
         }
         else {
-            $condition = " 1 and visible = 1";
+            $condition = " (categories_id = 4 and visible = 1) or (categories_id != 4)";
         }
 
         $result = $this->db->query(
@@ -87,6 +88,7 @@ class CommentsModel extends BaseModel {
              from  `comments`
              left join users on users.id = comments.user_id
              left join rating on rating.comment_id = comments.id
+             left join articles a on  a.id = `comments`.article_id
              where $condition
              group by comments.user_id, login order by comments DESC
              limit $top"
@@ -104,7 +106,7 @@ class CommentsModel extends BaseModel {
             $condition = "";
         }
         else {
-            $condition = " and visible = 1";
+            $condition = " and ((categories_id = 4 and visible = 1) or (categories_id != 4))";
         }
 
         $query  = 'select comments.id as comment_id, `comment`,  visible, user_id, login, add_date, title';
@@ -168,11 +170,12 @@ class CommentsModel extends BaseModel {
             $condition = "";
         }
         else {
-            $condition = " and visible = 1";
+            $condition = " and ((categories_id = 4 and visible = 1) or (categories_id != 4))";
         }
 
         $query = "select count(*) as quantity
                   from comments
+                  left join articles on articles.id = comments.article_id
                   where user_id = $user_id".$condition;
 
         $quantity = $this->db->query($query);

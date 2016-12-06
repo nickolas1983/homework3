@@ -128,7 +128,7 @@ class ArticleController extends BaseController
 
 
 
-                if ( (!isset($_SESSION['login']) || (isset($_SESSION['login']) && $_SESSION['login'] != ADMIN_LOGIN)) && !$comment['visible']){
+                if ( (!isset($_SESSION['login']) || (isset($_SESSION['login']) && $_SESSION['login'] != ADMIN_LOGIN)) && (!$comment['visible'] && $comment['categories_id'] == 4)){
                     $visible = "; display: none;";
                 }
                 else {
