@@ -46,7 +46,7 @@ class UsersController extends BaseController
                 );
 
                 $result = $userModel->insert($newUser);
-                    var_dump($result);
+                    //var_dump($result);
                 if ($result){
                     $user = $userModel->getByLogin($_POST['login']);
                     $_SESSION['login'] = $user['login'];

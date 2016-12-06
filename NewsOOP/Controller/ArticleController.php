@@ -72,7 +72,7 @@ class ArticleController extends BaseController
         $this->data['comments_list'] = $commentsModel->getCommentsByUser($user_id, ARTICLES_ON_PAGE, $countFrom);
 
         //var_dump((!isset($_SESSION['login']) || (isset($_SESSION['login']) && $_SESSION['login'] != ADMIN_LOGIN)) && !0);
-        var_dump($this->data['comments_list'][0]);
+        //var_dump($this->data['comments_list'][0]);
 
         $this->data['pagination']['lastPage'] = $commentsModel->countPagesByUsersComments($user_id);
         //var_dump($this->data['pagination']['lastPage']);
