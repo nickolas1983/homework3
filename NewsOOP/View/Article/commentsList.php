@@ -4,8 +4,7 @@
 
 
     <?php foreach ($data['comments_list'] as $comment) { ?>
-        <div class="well well-small" style="border: solid lightgray 1px; margin-bottom: 5px;
-        <?php if ( (!isset($_SESSION['login']) || (isset($_SESSION['login']) && $_SESSION['login'] != ADMIN_LOGIN)) && !$comment['visible']) echo "display: none;"?> ">
+        <div class="well well-small" style="border: solid lightgray 1px; margin-bottom: 5px; ">
             <p>Статья: <?php echo $comment['title'] ?> </p>
             <p>Комментарий: <?php echo $comment['comment']?></p>
             <p>Дата: <?php echo $comment['add_date']?></p>
