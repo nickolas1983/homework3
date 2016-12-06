@@ -89,7 +89,7 @@ class ArticleController extends BaseController
         $this->data['article'] = $articlesModel->get($id);
 
         /*Закрытые аналитические статьи*/
-        if (1==1){
+        if (!isset($_SESSION['login'])) {
             $this->shortArticle($this->data['article'], '8');
         }
         /*------------------------*/

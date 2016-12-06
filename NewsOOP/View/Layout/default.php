@@ -86,7 +86,7 @@
                         Поиск <input style="color: black; padding-left: 5px" type="text" id="search" placeholder="по тегу">
                     </div>
                     <div style="color: black; position: absolute; background-color: white; top: 38px; left: 94px;">
-                        <ul class="search_result" id="search_result" style="list-style: none; padding: 0 0 0 5px; width: 188px; border: solid 1px black">
+                        <ul class="search_result" id="search_result" style="list-style: none; padding: 0 0 0 5px; width: 188px;">
 
                         </ul>
                     </div>
@@ -100,11 +100,11 @@
 <!-- template data -->
 
 <div class="row ">
-    <div class="col-xs-3 col-md-2 col-md-offset-1" style="border: solid 1px black;">
+    <div class="col-xs-3 col-md-2 col-md-offset-1">
         <?php echo $left_content; ?>
     </div>
 
-    <div class="col-xs-8 col-md-6 container" style="border: solid 1px black;">
+    <div class="col-xs-8 col-md-6 container" >
             <div class="starter-template" >
                 <?php if($message) { ?>
                     <div class="alert alert-success alert-dismissible" role="alert">
@@ -116,7 +116,7 @@
             </div>
     </div>
 
-    <div class="col-xs-3 col-md-2" style="border: solid 1px black;">
+    <div class="col-xs-3 col-md-2" >
         <?php echo $right_content; ?>
     </div>
 </div>

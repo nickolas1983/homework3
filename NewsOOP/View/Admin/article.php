@@ -1,7 +1,8 @@
 <h3>Управление новостями</h3>
 
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data">
     <input type="hidden" name="add_article" value="1">
+    <input type="hidden" name="MAX_FILE_SIZE" value = "<?php echo MAX_FILE_SIZE; ?>" />
     <h4>Добавить новость</h4>
     <table style="text-align: left">
         <tr>
@@ -24,7 +25,7 @@
         </tr>
         <tr>
             <td>Изображение</td>
-            <td><input class="form-control" type="text" placeholder="3.jpg" name="image"> </td>
+            <td><input class="form-control" type="file" placeholder="3.jpg" name="image"> </td>
         </tr>
         <tr>
             <td>Теги</td>

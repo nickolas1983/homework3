@@ -21,3 +21,4 @@ define('TOP_COMMENTS', 3); //max quantity of products
 
 define('ADMIN_LOGIN', 'admin');
 define('POLITICS_ID', 4);
+define('MAX_FILE_SIZE', "1000000");

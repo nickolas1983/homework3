@@ -26,6 +26,7 @@ class AdminController extends BaseController
 
         $this->data['categories'] = $categoriesModel->getAll();
 
+
         if (isset($_POST['add_article']) && $_POST['add_article']) {
             $articlesModel = new ArticlesModel();
 
@@ -35,8 +36,20 @@ class AdminController extends BaseController
             else $categories_id = $_POST['selectCategory'];
             if (!isset($_POST['full_text'])) $full_text = "";
             else $full_text = $_POST['full_text'];
-            if (!isset($_POST['image'])) $image = "";
-            else $image = $_POST['image'];
+
+            if (!isset($_FILES)) $image = "";
+            else{
+                
+                
+                
+                $uploadfile = 'public'.DS.'images'.DS.$_FILES['image']['name'];
+
+                if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
+                    $image = $_FILES['image']['name'];
+                } else {
+                    $image = "";
+                }
+            }
             if (!isset($_POST['meta_key'])) $meta_key = "";
             else $meta_key = $_POST['meta_key'];
             if (!isset($_POST['analytics'])) $analytics = "";
